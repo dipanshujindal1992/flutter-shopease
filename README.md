@@ -285,7 +285,7 @@ These are **planned** and not yet implemented:
 
 Built with ❤️ as a Flutter portfolio project.
 
-- **Author:** Aarogya Ojha
+- **Author:** Dipanshu Jindal
 - **Repository:** `flutter-shopease`
 
 ---
