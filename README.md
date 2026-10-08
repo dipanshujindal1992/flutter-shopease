@@ -1,295 +1,876 @@
 # ShopEase 🛍️
 
-**ShopEase** is a modern, feature-rich **Flutter e-commerce mobile application** built for **Android and iOS**. It showcases a complete shopping experience — onboarding, authentication, a browsable storefront, product details, cart, checkout, wishlist, orders, and a personal profile — wrapped in a clean Material Design UI with a bundled **Poppins** font set, light/dark themes, and polished loading/shimmer/animation states.
+**ShopEase** is a modern Flutter e-commerce mobile application for **Android and iOS**, providing a complete shopping experience with onboarding, authentication, product browsing, categories, product details, wishlist, cart, checkout, orders, and user profile management.
 
-> A portfolio-grade Flutter project demonstrating clean folder architecture, GetX state management, reusable widget design, and Firebase integration.
+The application is built using a **feature-first architecture**, **GetX state management**, **Firebase services**, reusable UI components, local storage, and a structured data/repository layer designed for maintainability and future backend integration.
 
 ---
 
 ## 📱 About the Project
 
-ShopEase was built to demonstrate how a production-style e-commerce storefront can be implemented in Flutter. It solves the classic "everything crammed into one `main.dart`" problem by organizing code into features, common widgets, repositories, and utilities — the same structure used in large-scale Flutter apps.
+ShopEase is designed as a scalable e-commerce mobile application with a clean and maintainable Flutter codebase.
 
-The app currently ships with a **fully interactive UI flow** backed by **sample/static data** (products, categories, banners, cart, orders are hard-coded widgets). Authentication and user-profile persistence are wired to **Firebase**, which is temporarily **skipped at startup** (see [🔥 Firebase](#-firebase)) so the app can be previewed instantly in **guest mode** without configuration.
+The project separates application features, data repositories, common widgets, utilities, authentication, and configuration into dedicated modules. This makes the application easier to maintain, extend, test, and hand over for continued development.
 
-The goal is a clean, honest, and extensible foundation: real catalogs, payments, and persistence can be dropped in as the data layer evolves.
+The current product catalog and several commerce-related areas use predefined application data. The data layer is structured so these areas can be connected to a production REST API, Firebase backend, or another backend service as development progresses.
 
----
+### Key Areas
 
-## ✨ Features
-
-Implemented in the current codebase:
-
-**Authentication & Onboarding**
-- Onboarding carousel with page indicator, skip & next (first-run flag stored locally)
-- Email & password **Sign In** / **Register** with form validation
-- **Email verification** flow
-- **Password reset** (forgot password) flow
-- **Google Sign-In** (via `google_sign_in`)
-- Logout and **account deletion** (with re-authentication)
-
-**Storefront**
-- Home screen: promotional banner carousel, popular categories, popular products grid, search bar UI
-- Store screen: search bar, featured brands, category tabs (Sports, Furniture, Electronics, Clothes, Cosmetics)
-- Category → sub-category navigation
-- Product details screen: image slider, attributes, metadata, ratings, share & add-to-cart UI
-- Product reviews screen with rating breakdown and user review cards
-- All-products / brand screens
-
-**Commerce UI**
-- Wishlist screen
-- Cart screen with quantity controls and coupon field
-- Checkout screen: billing address, payment method (PayPal UI), amount breakdown
-- Orders screen with status and dates
-- Address list + add-new-address form
-
-**Profile & Personalization**
-- User profile screen with profile menu
-- Account settings screen with toggles and settings tiles
-- Change first/last name (Firestore-backed in code)
-- Local storage helpers
-
-**UI / UX**
-- Material Design, light + dark theme, custom themed widgets
-- Reusable design system (`common/widgets`), icons via **Iconsax**
-- Loading spinners, full-screen loaders, shimmer placeholders, snackbars, Lottie animations
-- Connectivity checks before network actions
-- Native splash screen (light/dark)
-
-> ⚠️ **Note:** Product catalog, search, cart, wishlist, and order content are currently **sample/static UI data**. The search bar is a visual container, and "Add to cart"/wishlist buttons don't persist state yet. See [🔮 Future Improvements](#-future-improvements).
+* Flutter application architecture
+* Feature-based project organization
+* GetX state management
+* Firebase Authentication
+* Cloud Firestore integration
+* Google Sign-In
+* Reusable UI components
+* Form validation
+* Error handling
+* Local storage
+* Light and dark themes
+* Loading and shimmer states
+* Android and iOS configuration
+* Repository-based data layer
+* Scalable application structure
 
 ---
 
-## 🛠️ Tech Stack
+# ✨ Features
 
-| Area | Technology |
-| --- | --- |
-| Framework | **Flutter** (3.41.6 stable) |
-| Language | **Dart** (SDK `^3.7.2`) |
-| State Management | **GetX** (`get`) — state, routing, dependency injection |
-| Firebase | `firebase_core`, `firebase_auth`, `cloud_firestore`, `firebase_storage` |
-| Social Auth | `google_sign_in` |
-| Local Storage | `get_storage` |
-| Networking | `http` (helper scaffold only) |
-| Utilities | `connectivity_plus`, `logger`, `intl`, `url_launcher` |
-| UI | Material Design, `iconsax`, `carousel_slider`, `smooth_page_indicator`, `readmore`, `flutter_rating_bar`, `lottie`, `shimmer` |
-| Splash | `flutter_native_splash` |
-| Fonts | Bundled Poppins (multiple weights & italic) |
+## 🔐 Authentication & Onboarding
+
+* Onboarding carousel
+* Page indicators
+* Skip and Next navigation
+* First-run state management
+* Email/password registration
+* Email/password login
+* Form validation
+* Email verification
+* Forgot password / password reset
+* Google Sign-In
+* Logout
+* Account deletion
+* Re-authentication before account deletion
 
 ---
 
-## 🏗️ Architecture
+## 🛍️ Storefront
 
-ShopEase follows a **feature-first**, layered architecture with GetX providing controllers, bindings, and injectable repositories. UI stays in **features**, shared UI lives in **common**, platform/backend logic lives in **data**, and reusable helpers live in **utils**.
+* Promotional banner carousel
+* Popular categories
+* Popular products
+* Product grid
+* Store screen
+* Featured brands
+* Category navigation
+* Sub-category navigation
+* Product details
+* Product image slider
+* Product attributes
+* Product metadata
+* Product ratings
+* Product reviews
+* Brand/product listing screens
+* Product sharing
+
+---
+
+## 🛒 Shopping
+
+* Wishlist
+* Shopping cart
+* Product quantity controls
+* Coupon input
+* Checkout
+* Billing address
+* Payment method UI
+* Order summary
+* Order history
+* Order status
+* Address management
+* Add new address
+
+> **Note:** Product catalog, search, cart, wishlist, and order content currently use predefined application data. These areas are structured for future backend integration and persistent data management.
+
+---
+
+## 👤 Profile & Personalization
+
+* User profile
+* Account settings
+* First and last name management
+* Address management
+* Settings controls
+* Profile menu
+* Local storage utilities
+* Firestore-backed user profile structure
+
+---
+
+## 🎨 UI / UX
+
+* Material Design
+* Light theme
+* Dark theme
+* Custom application themes
+* Poppins typography
+* Iconsax icons
+* Reusable UI components
+* Product cards
+* Custom app bars
+* Loading indicators
+* Shimmer placeholders
+* Full-screen loaders
+* Snackbars
+* Lottie animations
+* Native splash screen
+* Responsive layouts
+
+---
+
+# 🛠️ Technology Stack
+
+| Area                  | Technology              |
+| --------------------- | ----------------------- |
+| Framework             | Flutter 3.41.6          |
+| Language              | Dart `^3.7.2`           |
+| State Management      | GetX                    |
+| Authentication        | Firebase Authentication |
+| Database              | Cloud Firestore         |
+| Storage               | Firebase Storage        |
+| Social Authentication | Google Sign-In          |
+| Local Storage         | GetStorage              |
+| Networking            | HTTP                    |
+| Connectivity          | connectivity_plus       |
+| Logging               | logger                  |
+| Formatting            | intl                    |
+| URL Handling          | url_launcher            |
+| Icons                 | Iconsax                 |
+| Carousel              | carousel_slider         |
+| Page Indicators       | smooth_page_indicator   |
+| Ratings               | flutter_rating_bar      |
+| Animation             | Lottie                  |
+| Loading UI            | Shimmer                 |
+| Splash Screen         | flutter_native_splash   |
+| Fonts                 | Poppins                 |
+
+---
+
+# 🏗️ Architecture
+
+ShopEase follows a **feature-first architecture** with separation between UI, state management, repositories, utilities, and shared components.
 
 ```text
 lib/
-├── bindings/                 # GetX bindings (e.g. GeneralBindings)
-├── common/                   # Reusable app-wide widgets & styles
+├── bindings/
+│   └── GetX application bindings
+│
+├── common/
 │   ├── styles/
-│   └── widgets/              # appbar, products, layouts, images, texts...
+│   └── widgets/
+│       ├── appbar
+│       ├── products
+│       ├── layouts
+│       ├── images
+│       ├── texts
+│       └── reusable components
+│
 ├── data/
 │   └── repositories/
-│       ├── authentication/   # AuthenticationRepository (FirebaseAuth)
-│       └── user/             # UserRepository (Firestore "Users")
-├── features/                 # Feature modules (screens + controllers)
-│   ├── authentication/       # onboarding, login, signup, password, verify email
-│   ├── shop/                 # home, store, wishlist, cart, checkout, orders,
-│   │                         # product details, reviews, categories, brands
-│   └── personalization/      # profile, settings, addresses, user controller/model
+│       ├── authentication/
+│       └── user/
+│
+├── features/
+│   ├── authentication/
+│   │   ├── onboarding
+│   │   ├── login
+│   │   ├── signup
+│   │   ├── password
+│   │   └── verify email
+│   │
+│   ├── shop/
+│   │   ├── home
+│   │   ├── store
+│   │   ├── categories
+│   │   ├── brands
+│   │   ├── products
+│   │   ├── wishlist
+│   │   ├── cart
+│   │   ├── checkout
+│   │   ├── orders
+│   │   └── reviews
+│   │
+│   └── personalization/
+│       ├── profile
+│       ├── settings
+│       └── addresses
+│
 ├── utils/
-│   ├── constants/            # colors, sizes, text strings, images, enums
-│   ├── exceptions/           # Firebase / platform / format exception mappers
-│   ├── helpers/              # network manager, pricing calculator, formatters
-│   ├── http/                 # THttpHelper (REST scaffold, currently unused)
-│   ├── local_storage/        # GetStorage-based storage utility
-│   ├── popups & loaders/     # snackbars, full-screen loaders, shimmer, animation
-│   ├── theme/                # light/dark theme + custom widget themes
-│   └── validators/           # form validation helpers
-├── app.dart                  # GetMaterialApp root
-├── main.dart                 # Entry point (GetStorage, splash, Firebase, runApp)
-├── navigation_menu.dart      # Bottom navigation (Home / Store / Wishlist / Profile)
-└── firebase_options.dart     # Generated Firebase options
+│   ├── constants/
+│   ├── exceptions/
+│   ├── helpers/
+│   ├── http/
+│   ├── local_storage/
+│   ├── theme/
+│   └── validators/
+│
+├── app.dart
+├── main.dart
+├── navigation_menu.dart
+└── firebase_options.dart
 ```
 
-**Key decisions**
+---
 
-- **GetX controllers** live beside their feature screens and manage state reactively (`Rx`, `Obx`).
-- **Repositories** encapsulate Firebase access (`AuthenticationRepository`, `UserRepository`) and are registered once via `Get.put()`.
-- **`GetMaterialApp`** with `GeneralBindings` initializes the shared `NetworkManager`.
-- **Design system**: shared widgets in `common/widgets` (product cards, app bars, list tiles, text elements) keep screens consistent and DRY.
+# 🧩 Architecture Principles
+
+### Feature-Based Organization
+
+Application functionality is divided into independent modules such as authentication, shopping, and personalization.
+
+This allows new features to be added without tightly coupling unrelated parts of the application.
+
+### Reusable Components
+
+Common UI elements are centralized inside:
+
+```text
+lib/common/widgets/
+```
+
+Examples include:
+
+* Product cards
+* App bars
+* Buttons
+* Images
+* Text components
+* Layout components
+* List tiles
+* Loading components
+
+### Repository Pattern
+
+Backend and Firebase operations are handled through dedicated repositories.
+
+Current repositories include:
+
+```text
+AuthenticationRepository
+UserRepository
+```
+
+This provides a clear separation between UI and data access.
+
+### GetX
+
+GetX is used for:
+
+* State management
+* Reactive UI updates
+* Dependency injection
+* Navigation
+* Controllers
+* Bindings
 
 ---
 
-## 📂 Project Structure
+# 🔐 Authentication
 
-| Directory | Responsibility |
-| --- | --- |
-| `lib/features/authentication` | Onboarding, login, registration, email verification, password reset — controllers + screens |
-| `lib/features/shop` | The storefront: home, store, categories, product details/reviews, wishlist, cart, checkout, orders |
-| `lib/features/personalization` | User profile, account settings, address management, `UserModel` |
-| `lib/common/widgets` | Reusable UI building blocks (product cards, grids, app bar, tiles, images, texts) |
-| `lib/data/repositories` | Data access layer: authentication (FirebaseAuth) and user (Firestore) |
-| `lib/utils` | Constants, exceptions, helpers, formatters, HTTP scaffold, local storage, loaders, themes, validators |
-| `lib/bindings` | GetX initialization bindings |
-| `lib/navigation_menu.dart` | Root bottom-tab navigation |
+Authentication is implemented using **Firebase Authentication**.
 
----
+Supported functionality includes:
 
-## 🔐 Authentication
+* Email/password registration
+* Email/password login
+* Email verification
+* Password reset
+* Google Sign-In
+* Logout
+* Re-authentication
+* Account deletion
 
-Authentication is implemented with **Firebase Authentication** and exposed through `AuthenticationRepository` (`lib/data/repositories/authentication/`):
+Authentication logic is organized under:
 
-- **Email / password** — sign in, register, logout
-- **Email verification** — mandatory-verification flow after signup
-- **Password reset** — forgot-password screen
-- **Google Sign-In** — via `google_sign_in`, exchanges Google credentials through Firebase
-- **Re-authentication** — required before deleting an account (email/password)
-- **Account deletion** — removes the user record and Firestore profile
+```text
+lib/data/repositories/authentication/
+```
 
-Forms are validated before submission (`lib/utils/validators`), network availability is checked (`NetworkManager`), and errors are mapped to friendly messages via the exception mappers in `lib/utils/exceptions`.
+Form validation is handled through:
 
-> While Firebase initialization is commented out (guest mode), these actions fail gracefully with a snackbar instead of crashing — see [🔥 Firebase](#-firebase).
+```text
+lib/utils/validators/
+```
 
----
+Network availability is checked before network-dependent operations.
 
-## 🔌 API Integration
+Firebase and platform errors are handled through dedicated exception utilities.
 
-There is **no active REST API integration** in this project.
-
-- `lib/utils/http/http_client.dart` provides a small `THttpHelper` scaffold (GET/POST/PUT/DELETE with JSON parsing) but it uses a **placeholder base URL** and is **not wired to any feature**.
-- `lib/utils/constants/api_constants.dart` is an empty placeholder.
-- The shop catalog is currently **sample/static data** in the UI layer, not remote data.
-
-No API keys, tokens, or secrets are committed to the repository.
+> Firebase initialization is currently disabled at application startup so the application can run without requiring a Firebase configuration.
 
 ---
 
-## 🔥 Firebase
+# 🔥 Firebase Integration
 
-Firebase is **integrated in the codebase** but is currently **disabled at startup** so the app runs without configuration:
+Firebase services are integrated into the application for authentication and user-related functionality.
 
-- **Firebase Authentication** — email/password, Google, email verification, password reset (`firebase_auth`)
-- **Cloud Firestore** — user profile CRUD in the `Users` collection (`UserRepository`)
-- **Cloud Storage** — `TCloudHelperFunctions` provides upload/download helpers (currently unused)
-- **Firebase options** — generated `lib/firebase_options.dart`; Android config `android/app/google-services.json` is present
-- **Startup** — `Firebase.initializeApp()` in `lib/main.dart` is **commented out**; the app boots into a guest storefront using local storage for first-run/onboarding state
+### Firebase Authentication
 
-To enable Firebase, follow [Configuring Firebase](#configuring-firebase) in Getting Started.
+Used for:
+
+* Email/password authentication
+* Google authentication
+* Email verification
+* Password reset
+* Account management
+
+### Cloud Firestore
+
+Used for:
+
+* User profiles
+* User information
+* Profile updates
+
+### Firebase Storage
+
+Storage helper functionality is available for future image and file upload requirements.
+
+### Configuration
+
+Firebase configuration files include:
+
+```text
+lib/firebase_options.dart
+android/app/google-services.json
+```
+
+For another environment, these should be configured with the appropriate Firebase project credentials.
 
 ---
 
-## 🚀 Getting Started
+# 🔌 API Integration
 
-### Prerequisites
+The project includes a reusable HTTP layer for future backend integration.
 
-- [Flutter](https://docs.flutter.dev/get-started/install) 3.41.6 or newer (Dart SDK `^3.7.2`)
-- **Android**: Android Studio + Android SDK / emulator
-- **iOS** (macOS only): Xcode + iOS Simulator
-- [Firebase CLI](https://firebase.google.com/docs/cli) *(only if enabling Firebase)*
+The networking helper is located at:
 
-### Installation
+```text
+lib/utils/http/http_client.dart
+```
+
+It provides support for:
+
+```text
+GET
+POST
+PUT
+DELETE
+```
+
+The current application does not depend on an active production REST API.
+
+Product and commerce content currently use predefined application data.
+
+The existing architecture allows the data layer to be extended with:
+
+* Product APIs
+* Category APIs
+* Brand APIs
+* Search APIs
+* Cart APIs
+* Wishlist APIs
+* Order APIs
+* User APIs
+* Payment APIs
+
+---
+
+# 💾 Local Storage
+
+The application uses **GetStorage** for lightweight local persistence.
+
+Current use cases include:
+
+* Onboarding state
+* Application preferences
+* Local storage utilities
+
+The storage layer is centralized for easier future expansion.
+
+---
+
+# 🌐 Connectivity
+
+Network connectivity is handled using:
+
+```text
+connectivity_plus
+```
+
+Connectivity checks can be performed before network-dependent operations to provide appropriate feedback to users.
+
+---
+
+# 🎨 Design System
+
+ShopEase includes a reusable design system for maintaining consistent UI across the application.
+
+### Theme
+
+* Light theme
+* Dark theme
+* Custom colors
+* Custom typography
+* Custom widget themes
+
+### Typography
+
+The application uses the **Poppins** font family with multiple weights.
+
+### Icons
+
+The application uses **Iconsax** for iconography.
+
+### Shared Components
+
+Reusable widgets are organized under:
+
+```text
+lib/common/widgets/
+```
+
+---
+
+# 📂 Project Structure
+
+| Directory                      | Responsibility                                                         |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| `lib/features/authentication`  | Onboarding, login, registration, verification and password flows       |
+| `lib/features/shop`            | Home, store, categories, products, cart, wishlist, checkout and orders |
+| `lib/features/personalization` | Profile, settings, addresses and user management                       |
+| `lib/common/widgets`           | Reusable UI components                                                 |
+| `lib/common/styles`            | Shared application styles                                              |
+| `lib/data/repositories`        | Firebase and data access logic                                         |
+| `lib/utils/constants`          | Application constants                                                  |
+| `lib/utils/exceptions`         | Error handling                                                         |
+| `lib/utils/helpers`            | Helper functions and utilities                                         |
+| `lib/utils/http`               | HTTP networking layer                                                  |
+| `lib/utils/local_storage`      | GetStorage utilities                                                   |
+| `lib/utils/theme`              | Application themes                                                     |
+| `lib/utils/validators`         | Form validation                                                        |
+| `lib/bindings`                 | GetX dependency bindings                                               |
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+Install the following before running the project:
+
+* Flutter 3.41.6 or newer
+* Dart SDK `^3.7.2`
+* Android Studio
+* Android SDK
+* Android emulator or physical Android device
+* Xcode for iOS development
+* iOS Simulator or physical iOS device
+* Git
+
+Firebase CLI is required when configuring a Firebase project.
+
+---
+
+## Installation
+
+Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/dipanshujindal1992/flutter-shopease.git
+```
+
+Navigate to the project:
+
+```bash
 cd flutter-shopease
+```
+
+Install dependencies:
+
+```bash
 flutter pub get
 ```
 
-> The repository URL placeholder `<repository-url>` is where you'll paste your GitHub HTTPS/SSH URL for `flutter-shopease`.
+Check the Flutter environment:
 
-### Configuring Firebase
-
-Firebase is optional for previewing the UI (the app runs in guest mode). To enable real auth & user profiles:
-
-1. Create a project at the [Firebase console](https://console.firebase.google.com/).
-2. **Android**: add an Android app, download `google-services.json`, and place it in `android/app/` (one is already present — update it with your values).
-3. **iOS**: add an iOS app and download `GoogleService-Info.plist` into `ios/Runner/`.
-4. Enable **Email/Password** and **Google** sign-in providers under *Authentication → Sign-in method*.
-5. Uncomment the Firebase initialization block in `lib/main.dart`:
-
-```dart
-await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
-).then((FirebaseApp value) => Get.put(AuthenticationRepository()));
+```bash
+flutter doctor
 ```
 
-6. Re-run with `flutter clean` for Android/iOS plugin regeneration if needed.
-
-### Run the Application
+Run the application:
 
 ```bash
 flutter run
 ```
 
-> On first launch the onboarding carousel appears; after completing it you'll reach the login screen. While Firebase is skipped, tapping **Sign In** enters the app in **guest mode**.
+---
+
+# 🔥 Firebase Configuration
+
+Firebase configuration is required for authentication and user-profile functionality.
+
+### 1. Create Firebase Project
+
+Create a Firebase project:
+
+https://console.firebase.google.com/
+
+### 2. Configure Android
+
+Create an Android application in Firebase and download:
+
+```text
+google-services.json
+```
+
+Place it inside:
+
+```text
+android/app/
+```
+
+### 3. Configure iOS
+
+Create an iOS application and download:
+
+```text
+GoogleService-Info.plist
+```
+
+Place it inside:
+
+```text
+ios/Runner/
+```
+
+### 4. Enable Authentication
+
+Navigate to:
+
+```text
+Firebase Console
+→ Authentication
+→ Sign-in method
+```
+
+Enable:
+
+* Email/Password
+* Google
+
+### 5. Enable Firestore
+
+Create a Firestore database if user profile persistence is required.
+
+### 6. Initialize Firebase
+
+Enable the Firebase initialization block in:
+
+```text
+lib/main.dart
+```
+
+Example:
+
+```dart
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+).then(
+  (FirebaseApp value) =>
+      Get.put(AuthenticationRepository()),
+);
+```
+
+Then run:
+
+```bash
+flutter clean
+flutter pub get
+flutter run
+```
+
+> **Security:** Never commit private production credentials, service-account keys, API secrets, or other sensitive information to the repository.
 
 ---
 
-## 📸 Screenshots
+# 📱 Application Flow
 
-Coming soon — screenshots of the onboarding, home, store, product details, cart, checkout, and profile screens will be added here.
+```text
+Splash
+   ↓
+Onboarding
+   ↓
+Authentication
+   ↓
+Home
+   ↓
+Store
+   ↓
+Categories
+   ↓
+Product Details
+   ↓
+Wishlist / Cart
+   ↓
+Checkout
+   ↓
+Orders
+   ↓
+Profile / Settings
+```
+
+The main application sections are accessible through the bottom navigation.
 
 ---
 
-## 🧪 Testing
+# 📸 Screenshots
 
-The project has only the default Flutter **counter smoke test** scaffold (`test/widget_test.dart`), which is **not aligned** with this app's screens and currently fails on `flutter test`. This is a known starting point for a proper test suite.
+Screenshots can be added here to document the main application screens and user flows.
+
+Recommended screens:
+
+* Onboarding
+* Login
+* Registration
+* Home
+* Store
+* Categories
+* Product Details
+* Product Reviews
+* Wishlist
+* Cart
+* Checkout
+* Orders
+* Profile
+* Settings
+
+---
+
+# 🧪 Testing
+
+The project currently contains the default Flutter testing scaffold.
+
+A dedicated test suite can be expanded as development continues.
+
+Recommended test coverage includes:
+
+### Widget Tests
+
+* Authentication screens
+* Home screen
+* Product details
+* Cart
+* Checkout
+* Profile
+
+### Unit Tests
+
+* Validators
+* Price calculations
+* Controllers
+* Repository methods
+* Utility functions
+
+Run tests with:
 
 ```bash
 flutter test
 ```
 
-Planned: widget tests for auth flows, storefront navigation, and controller unit tests.
-
 ---
 
-## 📦 Build
+# 📦 Build
 
-### Android
+## Android APK
 
 ```bash
-flutter build apk --release        # APK (debug installs / side-loading)
-flutter build appbundle --release  # Google Play AAB
+flutter build apk --release
 ```
 
-### iOS
+The generated release APK can be used for testing and sideloading.
+
+## Android App Bundle
+
+```bash
+flutter build appbundle --release
+```
+
+The generated AAB can be used for Google Play deployment.
+
+## iOS
 
 ```bash
 flutter build ios --release
 ```
 
-> Release builds that require Firebase must have the platform config from [Configuring Firebase](#configuring-firebase) in place first.
+App Store distribution requires the appropriate Apple Developer account, signing configuration, provisioning profiles, and platform configuration.
 
 ---
 
-## 🔮 Future Improvements
+# 🔮 Future Improvements
 
-These are **planned** and not yet implemented:
+### Backend
 
-- **Payment gateway integration** — real Stripe / PayPal / RazorPay checkout instead of the static payment UI
-- **Backend product catalog** — replace hard-coded sample data with Firestore or a REST API products/categories/brands source
-- **Functional search & filtering** — wire the search bar + category filters to real data
-- **Persistent cart & wishlist** — quantity updates and item state backed by `get_storage`/Firestore
-- **Real order management & order tracking** — create orders at checkout and track status in Firestore
-- **Product reviews & ratings submission** — let users write reviews instead of displaying sample cards
-- **Push notifications** — Firebase Cloud Messaging for order/price alerts
-- **Admin dashboard** — manage products, orders, and users
-- **Advanced recommendations** — personalized product suggestions based on browsing history
-- **Multi-language (i18n) support** — the text-constant layer is already centralized for easy localization
-- **Proper test suite** — replace the default smoke test with real widget/unit tests
+* Production REST API
+* Product database
+* Category APIs
+* Brand APIs
+* User APIs
+* Cart APIs
+* Wishlist APIs
+* Order APIs
+
+### Commerce
+
+* Stripe integration
+* PayPal integration
+* Razorpay integration
+* Real checkout processing
+* Order creation
+* Order tracking
+* Coupon management
+
+### User Experience
+
+* Functional product search
+* Advanced filtering
+* Product sorting
+* Persistent cart
+* Persistent wishlist
+* Product reviews
+* Product ratings
+* Push notifications
+* Personalized recommendations
+
+### Administration
+
+* Product management
+* Category management
+* Order management
+* User management
+* Inventory management
+* Admin dashboard
+
+### Engineering
+
+* Unit testing
+* Widget testing
+* Integration testing
+* CI/CD pipeline
+* Automated builds
+* Crash reporting
+* Analytics
+* Performance monitoring
+* Multi-language support
 
 ---
 
-## 👨‍💻 Developer
+# 💼 Development Standards
 
-Built with ❤️ as a Flutter portfolio project.
+The project follows several development practices intended to keep the codebase maintainable and extensible.
 
-- **Author:** Dipanshu Jindal
-- **Repository:** `flutter-shopease`
+### Modular Architecture
+
+Features are separated into independent modules to reduce coupling.
+
+### Reusable Components
+
+Common UI elements are extracted into shared widgets to minimize duplication.
+
+### Separation of Responsibilities
+
+Presentation, state management, data access, and utility logic are kept in separate layers.
+
+### Centralized Configuration
+
+Application constants, themes, validators, exceptions, and local storage utilities are maintained in dedicated modules.
+
+### Backend Flexibility
+
+The repository/data layer provides a foundation for connecting the application to REST APIs, Firebase, or other backend services.
+
+### Platform Support
+
+The project is configured for both Android and iOS development.
+
+### Documentation
+
+The repository includes setup instructions, architecture documentation, Firebase configuration, build instructions, and future development areas to simplify project onboarding and continued development.
 
 ---
 
-## 📄 License
+# 🔒 Security & Configuration
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Before deploying the application to production:
+
+* Configure Firebase using the appropriate project
+* Configure Android release signing
+* Configure iOS certificates and provisioning
+* Replace development configuration
+* Configure production API endpoints
+* Secure API credentials
+* Configure database security rules
+* Review Firebase security rules
+* Configure payment credentials securely
+* Remove development/debug configurations
+
+---
+
+# 🤝 Project Maintenance
+
+The project structure and documentation are organized to make future development and maintenance easier.
+
+The documentation covers:
+
+* Project overview
+* Technology stack
+* Architecture
+* Folder structure
+* Authentication
+* Firebase configuration
+* API layer
+* Local storage
+* Application flow
+* Setup instructions
+* Build instructions
+* Testing
+* Future development
+
+This provides a clear foundation for developers joining the project and continuing implementation.
+
+---
+
+# 👨‍💻 Developer
+
+**Pankaj Bedwal**
+
+Flutter Developer
+
+**GitHub:**
+https://github.com/dipanshujindal1992
+
+**Repository:**
+https://github.com/dipanshujindal1992/flutter-shopease
+
+---
+
+# 📄 License
+
+Please refer to the `LICENSE` file included in this repository for the applicable license and usage terms.
+
+---
+
+## ⭐ ShopEase
+
+A modern Flutter e-commerce application built with a structured architecture, reusable components, Firebase integration, and a foundation for future backend and commerce integrations.
