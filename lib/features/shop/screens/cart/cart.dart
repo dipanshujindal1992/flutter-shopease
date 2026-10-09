@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class CartScreen extends StatelessWidget {
         padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: ElevatedButton(
           onPressed: () => Get.to(() => CheckoutScreen()),
-          child: Text("Checkout \$256"),
+          child: Text("Checkout \$100"),
         ),
       ),
     );

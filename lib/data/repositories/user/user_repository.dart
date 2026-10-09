@@ -10,7 +10,6 @@ import 'package:get/get.dart';
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
 
-  // TODO(Firebase): lazy so the repo can be created while Firebase.initializeApp() is commented out
   FirebaseFirestore get _db => FirebaseFirestore.instance;
 
   //Function to save data in firestore
