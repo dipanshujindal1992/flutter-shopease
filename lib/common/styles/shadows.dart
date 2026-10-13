@@ -13,6 +13,6 @@ class TShadowStyle {
     color: TColors.darkGrey.withOpacity(0.1),
     blurRadius: 50,
     spreadRadius: 8,
-    offset: Offset(0, 2),
+    offset: Offset(0, 2)
   );
 }

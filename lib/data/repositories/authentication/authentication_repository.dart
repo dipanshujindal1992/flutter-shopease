@@ -34,6 +34,8 @@ class AuthenticationRepository extends GetxController {
     screenRedirect();
   }
 
+
+
   //Function to show relevant screen
   screenRedirect() async {
     // TODO(Firebase): no auth session while Firebase is skipped -> local storage only
@@ -43,6 +45,7 @@ class AuthenticationRepository extends GetxController {
           ? Get.offAll(() => LoginScreen())
           : Get.offAll(OnboardingScreen());
       return;
+
     }
 
     final user = _auth.currentUser;

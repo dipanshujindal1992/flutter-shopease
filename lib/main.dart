@@ -13,7 +13,6 @@ Future<void> main() async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
 
-  // Getx Local Strorage---------------------------------------------------
   await GetStorage.init();
 
   // TODO: Init Payment Methods---------------------------------------------------
