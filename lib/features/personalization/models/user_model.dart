@@ -90,7 +90,7 @@ class UserModel {
       username: json['Username'] ?? '',
       email: json['Email'] ?? '',
       phoneNumber: json['PhoneNumber'] ?? '',
-      profilePicture: json['ProfilePicture'] ?? ''
+      profilePicture: json['ProfilePicture'] ?? '',
     );
   }
 }
