@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 class AllBrandsScreen extends StatelessWidget {
   const AllBrandsScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

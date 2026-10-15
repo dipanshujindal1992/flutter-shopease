@@ -28,6 +28,7 @@ class AddNewAddressScreen extends StatelessWidget {
                   decoration: InputDecoration(
                     prefix: Icon(Iconsax.mobile),
                     labelText: "Phone Number",
+
                   ),
                 ),
                 SizedBox(height: TSizes.spaceBtwInputFields),

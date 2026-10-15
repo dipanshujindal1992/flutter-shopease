@@ -5,5 +5,6 @@ class GeneralBindings extends Bindings {
   @override
   void dependencies() {
     Get.put(NetworkManager());
+
   }
 }
