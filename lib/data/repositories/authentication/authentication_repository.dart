@@ -15,6 +15,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
@@ -117,6 +118,7 @@ class AuthenticationRepository extends GetxController {
 
   // [Email Verification] -Mail Verification--------------------------
   Future<void> sendEmailVerification() async {
+
     try {
       await _auth.currentUser?.sendEmailVerification();
     } on FirebaseAuthException catch (e) {
