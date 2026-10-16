@@ -44,6 +44,7 @@ class AuthenticationRepository extends GetxController {
       deviceStrorage.read('IsFirstTime') != true
           ? Get.offAll(() => LoginScreen())
           : Get.offAll(OnboardingScreen());
+
       return;
 
     }

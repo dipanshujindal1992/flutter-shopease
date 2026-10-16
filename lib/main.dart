@@ -15,6 +15,8 @@ Future<void> main() async {
 
   await GetStorage.init();
 
+
+
   // TODO: Init Payment Methods---------------------------------------------------
 
   // Await Native Splash------  ---------------------------------------------

@@ -7,6 +7,7 @@ class TSpacingStyles {
     top: TSizes.appBarHeight,
     left: TSizes.defaultSpace,
     right: TSizes.defaultSpace,
-    bottom: TSizes.defaultSpace,
+    bottom: TSizes.defaultSpace
+
   );
 }
