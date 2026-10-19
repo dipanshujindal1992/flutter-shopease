@@ -853,7 +853,7 @@ This provides a clear foundation for developers joining the project and continui
 
 # 👨‍💻 Developer
 
-**Pankaj Bedwal**
+**Dispanshu Jindal**
 
 Flutter Developer
 
