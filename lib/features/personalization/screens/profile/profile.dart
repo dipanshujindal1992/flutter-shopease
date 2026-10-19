@@ -84,7 +84,7 @@ class ProfileScreen extends StatelessWidget {
               TProfileMenu(
                 onPressed: () {},
                 title: 'Date Of Birth',
-                value: '25 July 2004',
+                value: '23 July 2002',
               ),
 
               Divider(),
