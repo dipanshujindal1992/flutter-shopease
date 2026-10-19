@@ -20,7 +20,7 @@ class TProfileMenu extends StatelessWidget {
       onTap: onPressed,
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: TSizes.spaceBtwItems / 1.5,
+          vertical: TSizes.spaceBtwItems / 1.7,
         ),
         child: Row(
           children: [
