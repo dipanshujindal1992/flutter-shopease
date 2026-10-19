@@ -30,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    TCircularImage(image: TImages.user, width: 80, height: 80),
+                    TCircularImage(image: TImages.user, width: 90, height: 90),
                     TextButton(
                       onPressed: () {},
                       child: Text("Change Profile Picture"),
